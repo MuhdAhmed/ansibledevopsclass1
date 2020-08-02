@@ -1,0 +1,8 @@
+---
+- name: deploy java application
+  get_url:
+    url: 
+    dest: /opt/tomcat/webapps/raviLogin.war
+    username: admin
+    password: password
+    force_basic_auth: yes

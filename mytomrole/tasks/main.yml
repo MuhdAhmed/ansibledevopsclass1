@@ -1,32 +1,14 @@
 ---
 # tasks file for mytomrole
-- name: install tomcat
-  yum:
-   name: tomcat
-   state: present
-
-- name:  copy tom config file into all nodes
-  template:
-   src:  templates/mytomconfig.j2
-   dest: /usr/share/tomcat/conf/tomcat.conf
-  notify: starttomcat
-
-- name:  Install Admin Packages
-  yum:
-   name: "{{ item }}"
-   state: present
-  with_items:
-    - tomcat-webapps
-    - tomcat-admin-webapps
-
-- name: coy tom user file into all nodes
-  template:
-    src: templates/mytomuser.j2
-    dest: /usr/share/tomcat/conf/tomcat-users.xml
-  notify: restarttomcat
-
-- name: i want to deploy ravi java war file into webapps  
-  get_url:
-   url: https://ravilogin1.s3.amazonaws.com/raviLogin.war
-   dest: /usr/share/tomcat/webapps/raviLogin.war
-   force_basic_auth: yes
+- include_tasks: myjavainstall.yml
+- include_tasks: myusergroup.yml
+- include_tasks: download.yml
+- include_tasks: extract.yml
+- include_tasks: permissions.yml
+- include_tasks: tomconfigfile.yml
+- include_tasks: tomstart.yml
+- include_tasks: tomuser.yml
+- include_tasks: tomrestart.yml
+- include_tasks: deployjavaapp.yml
+#- include_tasks: deployjavaappbypass.yml
+- include_tasks: tomrestart.yml
