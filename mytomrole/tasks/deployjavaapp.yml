@@ -2,7 +2,7 @@
 - name: deploy java application
   get_url:
     url: http://15.207.112.205:8082/artifactory/ravikey1/2/target/raviLogin-1.0.war
-    dest: /opt/tomcat/webapps/manager/raviLogin.war
+    dest: /opt/tomcat/webapps/raviLogin.war
     username: ravi
     password: ravi
     force_basic_auth: yes
