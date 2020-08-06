@@ -3,6 +3,6 @@
   get_url:
     url: http://35.154.57.5:8082/artifactory/ravikey1/1/target/raviLogin-1.0.war
     dest: /opt/tomcat/webapps/raviLogin.war
-    username: admin
-    password: password
+    username: ravi
+    password: ravi
     force_basic_auth: yes
