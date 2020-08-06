@@ -1,7 +1,7 @@
 ---
 - name: deploy java application
   get_url:
-    url: 
+    url: http://35.154.57.5:8082/artifactory/ravikey1/1/target/raviLogin-1.0.war
     dest: /opt/tomcat/webapps/raviLogin.war
     username: admin
     password: password
